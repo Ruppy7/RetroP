@@ -200,7 +200,8 @@
 }
 
 .skill-tt{
-  border: 2px solid #00ff00;
+  font-family: 'Russo One', sans-serif;
+  border: 2px solid #00ffff;
   padding: 5px;
   border-radius: 5px;
 }
