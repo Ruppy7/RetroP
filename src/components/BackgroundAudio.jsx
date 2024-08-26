@@ -22,7 +22,7 @@ const BackgroundAudio = ({ isPlaying }) => {
 
   return (
     <>
-      <audio ref={audioRef} src="/src/assets/Music/sadbg.mp3" />
+      <audio ref={audioRef} src="/assets/Music/sadbg.mp3" />
     </>
   );
 };
