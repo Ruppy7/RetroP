@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.App{
+    font-family: 'Press Start 2P', cursive;
+}
+
+@keyframes fadeIn {
+    from{opacity:0;}
+    to {opacity: 1;}
+}
+
+.animate-fadeIn{
+    animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInfinite {
+    animation: startFade 1s infinite step-start;
+  }
+  
+  @keyframes startFade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@keyframes headerColorChange{
+    0%   {color: #ff0000}
+    25%  {color: #001eff}
+    50%  {color: #00ff1e}
+    75%  {color: #feabe8}
+    100% {color: #ff0000}
+}
+
+.header-name {
+    animation  : headerColorChange 10s infinite;
+}
