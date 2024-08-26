@@ -8,10 +8,10 @@ import PacmanComp from './components/PacmanComp';
 import LoadingBar from './components/LoadingBar';
 import BackgroundAudio from './components/BackgroundAudio';
 import useSound from './CustomHooks/useSound';
-import welcomesound from './assets/Music/welcomeclick.mp3'
 
 const App = () => {
 
+  const welcomesound = '/Music/welcomeclick.mp3';
   const playWelcomeSound = useSound(welcomesound);
 
   const [showContent, setShowContent] = useState(false);

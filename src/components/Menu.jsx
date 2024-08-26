@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import useSound from "../CustomHooks/useSound";
-import clickMenuSound from '../assets/Music/menuhover.mp3';
-import menuClose from '../assets/Music/menuclose.wav';
 
 const Menu = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
+
+  const clickMenuSound = '/Music/menuhover.mp3';
+  const menuClose = '/Music/menuclose.wav';
 
   const playClickSound = useSound(clickMenuSound);
   const playMenuClose  = useSound(menuClose);
