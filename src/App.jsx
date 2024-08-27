@@ -8,6 +8,10 @@ import PacmanComp from './components/PacmanComp';
 import LoadingBar from './components/LoadingBar';
 import BackgroundAudio from './components/BackgroundAudio';
 import useSound from './CustomHooks/useSound';
+import { MdMusicNote, MdMusicOff } from "react-icons/md";
+import { Tooltip } from 'react-tooltip';
+
+const MemoizedBackground = React.memo(Background);
 
 const App = () => {
 
@@ -16,6 +20,7 @@ const App = () => {
 
   const [showContent, setShowContent] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const handleClick = () => {
       playWelcomeSound();
@@ -26,9 +31,13 @@ const App = () => {
       }, 3300); // Duration for LoadingBar
   };
 
+  const toggleMusic = () => {
+    setIsPlaying(prev => !prev);
+  }
+
   return (
     <div className='App overflow-hidden text-white bg-[#0a0a0a] flex flex-col min-h-screen relative' onClick={!showContent ? handleClick : undefined}>
-      <Background />
+      <MemoizedBackground />
       {!showContent ? (
         <>
           <h1 className={`flex flex-grow text-6xl text-red-700 justify-center items-center animate-fadeIn`}>Welcome</h1>
@@ -37,7 +46,13 @@ const App = () => {
         </>
       ) : (
         <>
-          <BackgroundAudio isPlaying={true}/>
+          <BackgroundAudio isPlaying={isPlaying}/>
+          <div className=' border-2 rounded-full cursor-pointer absolute top-4 right-4 flex items-center'>
+            <div data-tooltip-id='music-tooltip' onClick={toggleMusic}>
+              {isPlaying ? <MdMusicNote size={30} /> : <MdMusicOff size={30}/>}
+            </div>
+            <Tooltip className='music-tt' id='music-tooltip' content={isPlaying ? 'Mute BG Music' : 'Play BG Music'} />
+          </div>
           <Header />
           <Menu />
           <PacmanComp />

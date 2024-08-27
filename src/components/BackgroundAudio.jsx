@@ -1,23 +1,26 @@
 // AudioPlayer.jsx
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const BackgroundAudio = ({ isPlaying }) => {
   const audioRef = useRef(null);
-  let playing = isPlaying;
 
   useEffect(() => {
     const audio = audioRef.current;
 
-    if (audio && isPlaying) {
+    if (audio) {
+      if (isPlaying){
       audio.volume = 0.6;
       audio.loop = true;
-      audio.play();/*.then(() => {
+      audio.play();
+      } else {
+        audio.pause();
+      }/*.then(() => {
         console.log('Audio is playing');
       }).catch(error => {
         console.error('Autoplay error:', error);
       });*/
     }
-  },[]);
+  },[isPlaying]);
 
 
   return (
