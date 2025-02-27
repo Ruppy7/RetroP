@@ -1,15 +1,18 @@
 import React from "react";
 import About from "./About";
 import Inventory from "./Inventory";
+import Projects from "./Projects";
 
 const Modal = ({ isOpen, onClose, title }) => {
   if (!isOpen) return null;
 
   let content;
-  if(title === 'About'){
+  if (title === 'About') {
     content = <About />;
-  } else if (title === 'Inventory'){
-    content = <Inventory />
+  } else if (title === 'Inventory') {
+    content = <Inventory />;
+  } else if (title === 'Projects') {
+    content = <Projects />;
   }
 
   return (
@@ -21,7 +24,7 @@ const Modal = ({ isOpen, onClose, title }) => {
             &times;
           </button>
         </div>
-        <div className=" text-sm modal-body">
+        <div className="text-sm modal-body">
           {content}
         </div>
       </div>
